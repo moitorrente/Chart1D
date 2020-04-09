@@ -5,10 +5,9 @@ Generador de gráficas en "1 dimensión" utilizando Chart.js.
 Por cada gráfica a generar se debe crear una nueva instancia del objeto Chart1D. 
 
 Los parrámetros a pasar en la generación del objeto son los siguientes:
-1. `id` (obligatorio): string identificador del canvas de la gráfica dentro del código 
-HTML
+1. `id` (obligatorio): string identificador del canvas de la gráfica dentro del código HTML.
 2. `title` (obligatorio): string con el valor del título de la gráfica. 
-3. `scale` (obligatorio): array con los valores numéricos de la escala de la gráfica a generar
+3. `scale` (obligatorio): array con los valores numéricos de la escala de la gráfica a generar.
 4. `scaleColors` (opcional): array de strings con los textos de los colores de la escala de la gráfica a generar. Se puede pasar el valor como texto en hexadecimal o bien utilizar el string de los [colores predefinidos](README.md#Strings-de-colores).
 
 Una vez generado el objeto, para visualizar el valor en el gráfico se debe utilziar la función `show()`, pasando como parámetro el valor que se quiere mostrar. 
