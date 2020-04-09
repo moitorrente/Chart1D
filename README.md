@@ -1,19 +1,15 @@
 # Chart1D
 Generador de gráficas en "1 dimensión" utilizando Chart.js. 
 
-Solo se implementan dos tipos de puntos para los datos:
-* Valor que coincide con un valor de la escala: en este caso el valor se muestra en el valor correspondiente.
-* Valor intermedio entre dos valores de escala: en este caso el valor se muestra en el centro los dos puntos de la escala en los que está comprendido.
-
 ## ¿Cómo se utiliza?
-Por cada gráfico a generar se debe crear una nueva instancia del objeto Chart1D. 
+Por cada gráfica a generar se debe crear una nueva instancia del objeto Chart1D. 
 
 Los parrámetros a pasar en la generación del objeto son los siguientes:
-1. `id` (obligatorio): string identificador del canvas del gráfico dentro del código 
+1. `id` (obligatorio): string identificador del canvas de la gráfica dentro del código 
 HTML
-2. `title` (obligatorio): string con el valor del título del gráfico. 
-3. `scale` (obligatorio): array con los valores numéricos de la escala del gráfico a generar
-4. `scaleColors` (opcional): array de strings con los textos de los colores de la escala del gráfico a generar. Se puede pasar el valor como texto en hexadecimal o bien utilizar el string de los [colores predefinidos](README.md#Strings-de-colores).
+2. `title` (obligatorio): string con el valor del título de la gráfica. 
+3. `scale` (obligatorio): array con los valores numéricos de la escala de la gráfica a generar
+4. `scaleColors` (opcional): array de strings con los textos de los colores de la escala de la gráfica a generar. Se puede pasar el valor como texto en hexadecimal o bien utilizar el string de los [colores predefinidos](README.md#Strings-de-colores).
 
 Una vez generado el objeto, para visualizar el valor en el gráfico se debe utilziar la función `show()`, pasando como parámetro el valor que se quiere mostrar. 
 
@@ -38,6 +34,20 @@ chart.show(value);
 Esto genera el siguiente gráfico:
 
 ![Ejemplo](./img/Ejemplo.PNG)
+
+## *Limitaciones*
+Este generador de gráficas tiene la siguientes limitaciones:
+
+1. Puede mostrar un máximo de 10 secciones. 
+Esto es modificable, permitiendo ampliar el valor máximo si se incorporan más objetos dentro de `data.datasets`, en esta versión tiene 10 datasets iniciales definidos.
+
+2. Solo puede mostrar el valor de la gráfica en dos tipos de punto:
+    1. Valor que coincide con un valor de la escala: en este caso el valor se muestra en el valor correspondiente.
+    2. Valor intermedio entre dos valores de escala: en este caso el valor se muestra en el centro los dos puntos de la escala en los que está comprendido.
+
+3. El rango de valores que se acepta para la escala es:
+    * Mínimo: 0
+    * Máximo: 99
 
 ## Strings de colores
 

@@ -111,10 +111,8 @@ class Chart1D {
         let colorArray = this.createColorScale(this.scaleColors);
 
         this.translateScale();
-
         this.addScaleLabels(this.interpolateScale(this.scale));
         this.addScaleData(this.scale);
-
 
         if (value) {
             dataPosition = this.findValuePosition(value, this.scale)[0];
