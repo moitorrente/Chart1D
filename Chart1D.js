@@ -1,48 +1,71 @@
-const colors = {
+const color = {
+    cyan: "#00ffff",
+    lightBlue: "#70cfff",
     blue: "#4092e4",
-    green: "#10b269",
-    yellow: "#ffc301",
-    orange: "#f28d19",
-    red: "#fa6a50",
-    darkGreen: "#08a45d",
     darkBlue: "#2377cd",
+    lightGreen: "#73f0b8",
+    green: "#10b269",
+    darkGreen: "#067543",
+    lightYellow: "#ffeaa6",
+    yellow: "#ffc301",
+    darkYellow: "#a67f00",
+    lightOrange: "#fcbf79",
+    orange: "#f28d19",
+    brown: "#854700",
+    red: "#fa6a50",
+    pink: "#ff00d0",
     white: "#ffffff",
+    purple: "#5b04c8"
 }
 
 const colorCombinations = [
-    [colors.green, colors.yellow, colors.orange],
-    [colors.orange, colors.green, colors.darkGreen],
-    [colors.darkBlue, colors.blue, colors.green, colors.yellow, colors.orange],
-    [colors.blue, colors.green, colors.yellow, colors.orange, colors.red]
+    [color.green, color.yellow, color.orange],
+    [color.orange, color.green, color.darkGreen],
+    [color.darkBlue, color.blue, color.green, color.yellow, color.orange],
+    [color.purple, color.blue, color.green, color.yellow, color.orange, color.red],
+    [color.purple, color.green, color.yellow, color.orange, color.red, color.blue]
 ]
 
 class Chart1D {
-    constructor(id, scale, color) {
+    constructor(id, scale, scaleColors) {
         this.scale = scale;
-        this.color = color || 3;
+        this.scaleColors = scaleColors;
         this.ctx = document.getElementById(id).getContext('2d');
         this.data = {
             labels: [],
             datasets: [
                 {
+                    data: [],
                     borderWidth: 6,
-                    pointBackgroundColor: colors.white
+                    pointBackgroundColor: color.white
                 }, {
                     data: [],
                     borderWidth: 6,
-                    pointBackgroundColor: colors.white
+                    pointBackgroundColor: color.white
                 }, {
                     data: [],
                     borderWidth: 6,
-                    pointBackgroundColor: colors.white
+                    pointBackgroundColor: color.white
                 }, {
                     data: [],
                     borderWidth: 6,
-                    pointBackgroundColor: colors.white
+                    pointBackgroundColor: color.white
                 }, {
                     data: [],
                     borderWidth: 6,
-                    pointBackgroundColor: colors.white
+                    pointBackgroundColor: color.white
+                }, {
+                    data: [],
+                    borderWidth: 6,
+                    pointBackgroundColor: color.white
+                }, {
+                    data: [],
+                    borderWidth: 6,
+                    pointBackgroundColor: color.white
+                }, {
+                    data: [],
+                    borderWidth: 6,
+                    pointBackgroundColor: color.white
                 }]
         }
         this.option = {
@@ -69,15 +92,18 @@ class Chart1D {
         });
     }
 
+
     show(value) {
         let dataPosition, datasetPosition;
-        
+        let colorArray = this.createColorScale(this.scaleColors);
+
         this.translateScale();
+
         this.addScaleLabels(this.interpolateScale(this.scale));
         this.addScaleData(this.scale);
 
 
-        if(value){
+        if (value) {
             dataPosition = this.findValuePosition(value, this.scale)[0];
             datasetPosition = this.findValuePosition(value, this.scale)[1];
         }
@@ -93,13 +119,29 @@ class Chart1D {
                 this.data.datasets[i].pointRadius = this.data.datasets[i].pointHoverRadius;
             }
 
-            this.data.datasets[i].borderColor = colorCombinations[this.color][i];
+            this.data.datasets[i].borderColor = colorArray[i];
         }
         this.myChart.update();
     }
 
-    
-    translateScale(){
+    createColorScale(scaleColors) {
+        let colors = [];
+        if (scaleColors) {
+            for (let i in scaleColors) {
+                colors.push(color[scaleColors[i]]);
+
+                if (!color[scaleColors[i]]) {
+                    console.log(`Color '${scaleColors[i]}' no válido!`);
+                }
+            }
+        } else {
+            colors = colorCombinations[3];
+        }
+        return colors;
+    }
+
+
+    translateScale() {
         //En caso de que la escala no empiece en 0 lo inserta para desplazar hacia la derecha
         if (this.scale[0] != 0) {
             this.scale.unshift(0);
