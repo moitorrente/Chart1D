@@ -1,21 +1,22 @@
 const color = {
-    cyan: "#00ffff",
-    lightBlue: "#70cfff",
-    blue: "#4092e4",
-    darkBlue: "#2377cd",
-    lightGreen: "#73f0b8",
-    green: "#10b269",
-    darkGreen: "#067543",
-    lightYellow: "#ffeaa6",
-    yellow: "#ffc301",
-    darkYellow: "#a67f00",
-    lightOrange: "#fcbf79",
-    orange: "#f28d19",
-    brown: "#854700",
-    red: "#fa6a50",
-    pink: "#ff00d0",
-    white: "#ffffff",
-    purple: "#5b04c8"
+    cyan: '#00ffff',
+    lightBlue: '#70cfff',
+    blue: '#4092e4',
+    darkBlue: '#2377cd',
+    lightGreen: '#73f0b8',
+    green: '#10b269',
+    darkGreen: '#067543',
+    lightYellow: '#ffeaa6',
+    yellow: '#ffc301',
+    darkYellow: '#a67f00',
+    lightOrange: '#fcbf79',
+    orange: '#f28d19',
+    brown: '#854700',
+    red: '#fa6a50',
+    pink: '#ff00d0',
+    white: '#ffffff',
+    purple: '#5b04c8',
+    black: '#000000'
 }
 
 const colorCombinations = [
@@ -27,14 +28,23 @@ const colorCombinations = [
 ]
 
 class Chart1D {
-    constructor(id, scale, scaleColors) {
+    constructor(id, title, scale, scaleColors) {
         this.scale = scale;
+        this.title = title;
         this.scaleColors = scaleColors;
         this.ctx = document.getElementById(id).getContext('2d');
         this.data = {
             labels: [],
             datasets: [
                 {
+                    data: [],
+                    borderWidth: 6,
+                    pointBackgroundColor: color.white
+                }, {
+                    data: [],
+                    borderWidth: 6,
+                    pointBackgroundColor: color.white
+                }, {
                     data: [],
                     borderWidth: 6,
                     pointBackgroundColor: color.white
@@ -83,6 +93,10 @@ class Chart1D {
                 yAxes: [{
                     display: false,
                 }]
+            },
+            title: {
+                display: true,
+                text: this.title,
             }
         }
         this.myChart = new Chart(this.ctx, {
@@ -91,7 +105,6 @@ class Chart1D {
             options: this.option
         });
     }
-
 
     show(value) {
         let dataPosition, datasetPosition;
@@ -128,10 +141,14 @@ class Chart1D {
         let colors = [];
         if (scaleColors) {
             for (let i in scaleColors) {
-                colors.push(color[scaleColors[i]]);
 
-                if (!color[scaleColors[i]]) {
-                    console.log(`Color '${scaleColors[i]}' no válido!`);
+                if (scaleColors[i][0] == '#') {
+                    colors.push(scaleColors[i]);
+                } else {
+                    colors.push(color[scaleColors[i]]);
+                    if (!color[scaleColors[i]]) {
+                        console.log(`Color '${scaleColors[i]}' no válido!`);
+                    }
                 }
             }
         } else {
