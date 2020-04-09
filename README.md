@@ -41,7 +41,7 @@ Esto genera el siguiente gráfico:
 
 ## Strings de colores
 
-Dentro de `scaleColors` se puede pasar los siguientes literales, correspondientes a los colores predefinidos en valor hexadecimal:
+Dentro de `scaleColors` además del string con el valor hexadecimal se pueden pasar los siguientes literales, correspondientes a los colores predefinidos en el generador de gráficos:
 
 | Nombre      | Valor hexadecimal |
 |-------------|-------------------|
