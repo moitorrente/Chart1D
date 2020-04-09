@@ -35,7 +35,7 @@ Esto genera el siguiente gráfico:
 
 ![Ejemplo](./img/Ejemplo.PNG)
 
-## *Limitaciones*
+## Limitaciones
 Este generador de gráficas tiene la siguientes limitaciones:
 
 1. Puede mostrar un máximo de 10 secciones. 
