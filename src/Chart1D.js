@@ -106,7 +106,13 @@ class Chart1D {
                     top: 0,
                     bottom: 0
                 }
-            }
+            },
+            tooltips: { 
+                enabled: false 
+            },
+            hover: { 
+                mode: null 
+            },
         }
         this.myChart = new Chart(this.ctx, {
             type: 'line',
