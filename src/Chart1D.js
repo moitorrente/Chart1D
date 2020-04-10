@@ -97,6 +97,15 @@ class Chart1D {
             title: {
                 display: true,
                 text: this.title,
+                fontColor: '#777777'
+            },
+            layout: {
+                padding: {
+                    left: 25,
+                    right: 0,
+                    top: 0,
+                    bottom: 0
+                }
             }
         }
         this.myChart = new Chart(this.ctx, {
