@@ -35,9 +35,9 @@ chart.show(value);
 Para generar una gráfica sin animaciones se debe utilizar la siguiente estructura en HTML:
 
 ```HTML
-	<div class="chart-container">
-		<canvas id="myChart" width="600" height="100" class="chart1D"></canvas>
-	</div>
+<div class="chart-container">
+	<canvas id="myChart" width="600" height="100" class="chart1D"></canvas>
+</div>
 ```
 El `id` del canvas será el que se pasará en la generación del nuevo objeto.
 
@@ -50,11 +50,11 @@ Se genera el siguiente objeto:
 
 Para generar una gráfica con animaciones se debe utilizar la siguiente estructura en HTML:
 ```HTML
-	<div class="chart-container">
-		<details>
-			<summary id="myChartSummary"></summary>
-			<canvas id="myChart" width="600" height="100" class="chart1D"></canvas>
-	</div>
+<div class="chart-container">
+	<details>
+		<summary id="myChartSummary"></summary>
+		<canvas id="myChart" width="600" height="100" class="chart1D"></canvas>
+</div>
 ```
 El `id` del canvas será el que se pasará en la generación del nuevo objeto. El `id` del summary debe ser la concatenación del `id` del canvas con el texto 'Summary'.
 
