@@ -43,7 +43,7 @@ El `id` del canvas será el que se pasará en la generación del nuevo objeto.
 
 Se genera el siguiente objeto:
 
-![Ejemplo](./img/Ejemplo0.PNG)
+![Ejemplo](./img/Ejemplo3.PNG)
 
 
 ### Ejemplo con animación
@@ -52,11 +52,8 @@ Para generar una gráfica con animaciones se debe utilizar la siguiente estructu
 ```HTML
 	<div class="chart-container">
 		<details>
-			<summary id="myChartSummary">
-				Chart
-			</summary>
+			<summary id="myChartSummary"></summary>
 			<canvas id="myChart" width="600" height="100" class="chart1D"></canvas>
-		</details>
 	</div>
 ```
 El `id` del canvas será el que se pasará en la generación del nuevo objeto. El `id` del summary debe ser la concatenación del `id` del canvas con el texto 'Summary'.
