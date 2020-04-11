@@ -29,9 +29,9 @@ details{
 	border-width: 1px;
 	border-style: solid;
 	border-color: #d3d3d3;
-    padding: 10px;
+    padding: 1rem;
 	background-color: #ffffff;
-	width: 600px;
+	width: 35rem;
 	margin: 1.5rem;
 	transition: height 0.6s ease;
     overflow: hidden;

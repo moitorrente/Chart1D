@@ -81,7 +81,7 @@ class Chart1D {
                 }]
         }
         this.option = {
-            responsive: false,
+            responsive: true,
             legend: {
                 display: false,
                 position: 'bottom'
