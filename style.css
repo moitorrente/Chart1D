@@ -1,17 +1,58 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap");
+
+html {
+	box-sizing: border-box;
+	font-size: 1rem;
+	font-family: "Roboto", sans-serif;
+	user-select: none; 
+}
+
 body{
-    background-color: rgb(240, 240, 240);
+    background-color: #f0f0f0;
     padding: 0;
     margin: 0;
 }
-
-.chart1D{
-    background-color: white;
-    border-color: lightgray;
-    border-style: solid;
-    border-width: 1px;
-    border-radius: 5px;
-    padding: 15px;
-    padding-left: 0px;
-    padding-right: 0px;
-    margin: 1rem;
+canvas{
+	margin-top: 1rem;
 }
+
+summary{
+	cursor: pointer;
+	height: 1.5rem;
+	user-select: none; 
+}
+
+details{
+	color: rgb(100, 100, 100);
+	font-weight: bold;
+	border-radius: 8px;
+	border-width: 1px;
+	border-style: solid;
+	border-color: #d3d3d3;
+    padding: 10px;
+	background-color: #ffffff;
+	width: 600px;
+	margin: 1.5rem;
+	transition: height 0.6s ease;
+    overflow: hidden;
+}
+
+details:not([open])
+{
+    height: 1.25em;
+}
+
+details[open]
+{
+    height: 150px;
+}
+
+details summary::-webkit-details-marker {
+	position: relative;
+	left: 90%;
+}
+
+*:focus {
+    outline: none;
+}
+

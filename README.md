@@ -14,11 +14,11 @@ Una vez generado el objeto, para visualizar el valor en el gráfico se debe util
 
 En caso de que no se le pase ningún valor a la función `show()` se mostrará únicamente el eje del gráfico.
 
-## Ejemplo
-En el código HTML se define un nuevo canvas:
-```HTML
-<canvas id="myChart" width="500" height="80"></canvas>
-```
+## Ejemplos
+
+En ambos ejemplos, el código Javascript utilizado es el siguiente:
+
+**Javascript**
 
 En el código javascript se define el nuevo objeto como:
 ```javascript
@@ -30,9 +30,45 @@ let chart = new Chart1D('myChart', 'Título de la gráfica', scale, scaleColors)
 chart.show(value);
 ```
 
-Esto genera el siguiente gráfico:
+### Ejemplo sin animación
 
-![Ejemplo](./img/Ejemplo.PNG)
+Para generar una gráfica sin animaciones se debe utilizar la siguiente estructura en HTML:
+
+```HTML
+	<div class="chart-container">
+		<canvas id="myChart" width="600" height="100" class="chart1D"></canvas>
+	</div>
+```
+El `id` del canvas será el que se pasará en la generación del nuevo objeto.
+
+Se genera el siguiente objeto:
+
+![Ejemplo](./img/Ejemplo0.PNG)
+
+
+### Ejemplo con animación
+
+Para generar una gráfica con animaciones se debe utilizar la siguiente estructura en HTML:
+```HTML
+	<div class="chart-container">
+		<details>
+			<summary id="myChartSummary">
+				Chart
+			</summary>
+			<canvas id="myChart" width="600" height="100" class="chart1D"></canvas>
+		</details>
+	</div>
+```
+El `id` del canvas será el que se pasará en la generación del nuevo objeto. El `id` del summary debe ser la concatenación del `id` del canvas con el texto 'Summary'.
+
+
+Se genera el siguiente objeto:
+
+![Ejemplo](./img/Ejemplo1.PNG)
+
+Si se pulsa encima se muestra el gráfico completo:
+
+![Ejemplo](./img/Ejemplo2.PNG)
 
 ## Limitaciones
 Este generador de gráficas tiene la siguientes limitaciones:

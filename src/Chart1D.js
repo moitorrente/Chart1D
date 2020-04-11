@@ -29,8 +29,10 @@ const colorCombinations = [
 
 class Chart1D {
     constructor(id, title, scale, scaleColors) {
+        this.id = id;
         this.scale = scale;
         this.title = title;
+
         this.scaleColors = scaleColors;
         this.ctx = document.getElementById(id).getContext('2d');
         this.data = {
@@ -95,7 +97,7 @@ class Chart1D {
                 }]
             },
             title: {
-                display: true,
+                display: false,
                 text: this.title,
                 fontColor: '#777777'
             },
@@ -114,11 +116,23 @@ class Chart1D {
                 mode: null 
             },
         }
+        
+        this.setTitle(title);
+
         this.myChart = new Chart(this.ctx, {
             type: 'line',
             data: this.data,
             options: this.option
         });
+
+    }
+
+    setTitle(title){
+        if(document.getElementById(this.id+'Summary')){
+            document.getElementById(this.id+'Summary').innerHTML = title;
+        } else {
+            this.option.title.display = true;
+        }
     }
 
     show(value) {
